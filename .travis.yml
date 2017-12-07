@@ -1,0 +1,18 @@
+language: bash
+services: docker
+before_script:
+ - docker -v
+ - image="bkuhl/laravel-fpm-nginx:latest"
+script:
+ - docker build -t "$image" .
+ - docker images
+before_deploy:
+ # Extract the version components out of a `v12.34.56` or `12.34.56` version string (only works if this is a semantically versioned tag)
+ - IFS=. read MAJOR MINOR PATCH <<< "${TRAVIS_TAG#v}"
+ - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+deploy:
+ provider: script
+ script: docker push "$image" && docker tag "$image" "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}" && docker push "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}" && docker tag "$image" "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}.${MINOR}" && docker push "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}.${MINOR}" && docker tag "$image" "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}.${MINOR}.${PATCH}" && docker push "bkuhl/laravel-fpm-nginx:fpm_v${MAJOR}.${MINOR}.${PATCH}"
+ skip_cleanup: false
+ on:
+   tags: true
