@@ -1,7 +1,10 @@
 FROM bkuhl/fpm-nginx:v7.2.0
 
-RUN apk add --update --no-cache yarn \
+RUN apk add --update --no-cache python \
 
+    # allows us to build front-end dependencies
+    && yarn \
+    
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 
 # Add default virtualhost
