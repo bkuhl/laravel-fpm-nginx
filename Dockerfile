@@ -1,4 +1,4 @@
-FROM bkuhl/fpm-nginx:7.2.0
+FROM bkuhl/fpm-nginx:7.2.2
 
 RUN apk add --update --no-cache python \
 
