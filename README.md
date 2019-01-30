@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bkuhl/laravel-fpm-nginx.svg?branch=master)](https://travis-ci.org/bkuhl/laravel-fpm-nginx)
 
-This container is intended to run Laravel applications and build front-end dependencies.  It includes:
+This container is intended to run Laravel applications and build front-end dependencies.  Check out https://hub.docker.com/r/bkuhl/laravel-fpm-nginx for a full list of tags.  It includes:
  
  * PHP-FPM
  * Yarn (uses nodejs/npm)
