@@ -6,6 +6,8 @@ This container is intended to run Laravel applications and build front-end depen
  
  * PHP-FPM
  * Yarn (uses nodejs/npm)
+ * xdebug (when enabled)
+ * opcache (when in production)
    
 For non-Laravel applications, see [bkuhl/fpm-nginx](https://github.com/bkuhl/fpm-nginx).
 
