@@ -1,10 +1,9 @@
-FROM bkuhl/fpm-nginx:7.4.2
+FROM bkuhl/fpm-nginx:7.4.11
 
-RUN apk add --update --no-cache python \
+RUN apk add --update --no-cache python3 \
     # allows us to build front-end dependencies
     yarn \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 
 # Add default virtualhost
-# Still needs work
 ADD ./default.conf /etc/nginx/conf.d/default.conf
