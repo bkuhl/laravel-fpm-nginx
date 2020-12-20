@@ -1,4 +1,4 @@
-FROM bkuhl/fpm-nginx:7.4.11
+FROM bkuhl/fpm-nginx:8.0.0
 
 RUN apk add --update --no-cache python3 \
     # allows us to build front-end dependencies
