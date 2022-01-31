@@ -1,7 +1,5 @@
 # FPM/Nginx for Laravel
 
-[![Build Status](https://travis-ci.org/bkuhl/laravel-fpm-nginx.svg?branch=master)](https://travis-ci.org/bkuhl/laravel-fpm-nginx)
-
 This container is intended to run Laravel applications and build front-end dependencies.  Check out https://hub.docker.com/r/bkuhl/laravel-fpm-nginx for a full list of tags.  It includes:
  
  * PHP-FPM
@@ -26,15 +24,10 @@ ADD --chown=www-data:www-data  . /var/www/html
 USER www-data
 
     # production-ready dependencies
-RUN composer install  --no-interaction --optimize-autoloader --no-dev --prefer-dist \
-
-    # keep the container light weight
-    && rm -rf /home/www-data/.composer/cache \
+RUN composer install  --no-interaction --optimize-autoloader --no-dev --no-cache --prefer-dist \
     
     # compile front-end assets
     && yarn install \
     && yarn run production \
     && yarn cache clean
-
-USER root
 ```
