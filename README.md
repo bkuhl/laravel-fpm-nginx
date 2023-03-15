@@ -37,7 +37,7 @@ ADD . .
 RUN npm ci
 RUN npm run production
 
-FROM bkuhl/laravel-fpm-nginx:8.1.11
+FROM bkuhl/laravel-fpm-nginx:8.2.3
 
 COPY --from=frontend /opt/app/public/css public/css
 COPY --from=frontend /opt/app/public/js public/js
