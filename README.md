@@ -43,4 +43,5 @@ COPY --from=frontend /opt/app/public/css public/css
 COPY --from=frontend /opt/app/public/js public/js
 COPY --from=frontend /opt/app/public/fonts public/fonts
 COPY --from=frontend /opt/app/public/mix-manifest.json public/mix-manifest.json
+
 ```
