@@ -1,5 +1,8 @@
 # FPM/Nginx for Laravel
 
+> [!WARNING]
+> This project has been deprecated, we recommend using https://serversideup.net images instead.
+
 This container is intended to run Laravel applications and build front-end dependencies.  Check out https://hub.docker.com/r/bkuhl/laravel-fpm-nginx for a full list of tags.  It includes:
  
  * PHP-FPM
